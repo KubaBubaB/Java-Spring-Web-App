@@ -147,8 +147,8 @@ public class Main {
     private static void threadPoolTask(){
         int poolSize = 4;
         ForkJoinPool customThreadPool = new ForkJoinPool(poolSize);
-
-        professions.parallelStream().forEach(profession -> {
+        //is this the same as professions.parallelStream(). ... ???????????
+        professions.stream().parallel().forEach(profession -> {
             profession.getCharacters().forEach(character -> {
                 customThreadPool.execute(() -> {
                     try {
