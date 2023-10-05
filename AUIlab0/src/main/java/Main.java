@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeSet;
 import java.util.Vector;
+import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.List;
@@ -143,6 +144,33 @@ public class Main {
         }
     }
 
+    private static void threadPoolTask(){
+        int poolSize = 4;
+        ForkJoinPool customThreadPool = new ForkJoinPool(poolSize);
+
+        professions.parallelStream().forEach(profession -> {
+            profession.getCharacters().forEach(character -> {
+                customThreadPool.execute(() -> {
+                    try {
+                        System.out.println("Working on " + character.getName() + " "+ character.getProfession());
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+            });
+
+        });
+        customThreadPool.shutdown();
+        while (!customThreadPool.isTerminated()) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void main(String[] args){
         buildProfessions();
         buildAndAssignCharacters();
@@ -152,5 +180,6 @@ public class Main {
         filterSet(charSet);
         transformIntoDtoAndPrint(createSet());
         serializeDeserializeAndPrint(professions);
+        threadPoolTask();
     }
 }
