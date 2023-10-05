@@ -1,9 +1,11 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeSet;
 import java.util.Vector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.List;
 
 public class Main {
     static Profession mageProf;
@@ -64,6 +66,83 @@ public class Main {
         printSet(characterStream.collect(Collectors.toCollection(TreeSet::new)));
     }
 
+    private static void transformIntoDtoAndPrint(TreeSet<Character> tSet){
+        List<CharacterDTO> arDTO = tSet.stream().map(character -> {
+            final CharacterDTO charDTo = new CharacterDTO(character.getName(), character.getLevel(), character.getProfession().getName());
+            return charDTo;
+        }).sorted().toList();
+
+        Stream<CharacterDTO> characterStream = arDTO.stream();
+        characterStream.forEach(System.out::println);
+    }
+
+    private static void serializeDeserializeAndPrint(Vector<Profession> vecProf) {
+        String path = "src/main/resources/serialization.txt";
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            fos = new FileOutputStream(path);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(vecProf);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(oos != null){
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fos != null){
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        //deserielize
+        Vector<Profession> vecProf2 = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try{
+            fis = new FileInputStream(path);
+            ois = new ObjectInputStream(fis);
+            vecProf2 = (Vector<Profession>) ois.readObject();
+        }
+        catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        finally {
+            if(ois != null){
+                try{
+                    ois.close();
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+            if(fis!=null){
+                try{
+                    fis.close();
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if(vecProf2!=null){
+            vecProf2.forEach(profession -> {
+                System.out.println(profession);
+                profession.getCharacters().forEach(character ->
+                    System.out.println(character.toString()));});
+        }
+    }
+
     public static void main(String[] args){
         buildProfessions();
         buildAndAssignCharacters();
@@ -71,5 +150,7 @@ public class Main {
         TreeSet<Character> charSet = createSet();
         printSet(charSet);
         filterSet(charSet);
+        transformIntoDtoAndPrint(createSet());
+        serializeDeserializeAndPrint(professions);
     }
 }

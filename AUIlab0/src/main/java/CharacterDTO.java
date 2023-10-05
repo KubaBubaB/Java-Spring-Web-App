@@ -1,17 +1,29 @@
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
-public class CharacterDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class CharacterDTO implements Comparable<CharacterDTO>{
     private String name;
     private int level;
     private String profession;
-    public CharacterDTO(String name, int level, String profession){
-        this.level = level;
-        this.name = name;
-        this.profession = profession;
+
+    @Override
+    public int compareTo(CharacterDTO o) {
+        if(o.getName().equals(name) && o.level == level && o.getProfession().equals(profession)){
+            return 0;
+        }
+        else if (name.equals(o.getName()) && o.level == level){
+            return profession.compareTo(o.getProfession());
+        }
+        else if (name.equals(o.getName())){
+            return Integer.compare(level,o.level);
+        }
+        else{
+            return name.compareTo(o.getName());
+        }
     }
 }

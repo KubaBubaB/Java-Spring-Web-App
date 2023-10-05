@@ -1,13 +1,15 @@
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 import java.lang.String;
 import java.util.Objects;
 
 @Getter
 @Setter
 @Builder
-public class Character implements Comparable<Character>{
+public class Character implements Comparable<Character>, Serializable {
     private String name;
     private int level;
     private Profession profession;

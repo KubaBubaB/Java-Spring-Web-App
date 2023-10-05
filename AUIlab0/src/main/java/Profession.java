@@ -2,6 +2,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -10,7 +11,7 @@ import java.util.Objects;
 @Setter
 @Getter
 @Builder
-public class Profession implements Comparable<Profession>{
+public class Profession implements Comparable<Profession>, Serializable {
     private String name;
     private int baseArmor;
     private List<Character> characters;
