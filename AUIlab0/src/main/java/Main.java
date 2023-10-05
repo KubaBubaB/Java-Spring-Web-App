@@ -58,10 +58,18 @@ public class Main {
         System.out.println(characterStream.collect(Collectors.toList()));
     }
 
+    private static void filterSet(TreeSet<Character> tSet){
+        Stream<Character> characterStream = tSet.stream().filter(character -> character.getProfession().
+                equals(mageProf)).sorted();
+        printSet(characterStream.collect(Collectors.toCollection(TreeSet::new)));
+    }
+
     public static void main(String[] args){
         buildProfessions();
         buildAndAssignCharacters();
         printProffesions();
-        printSet(createSet());
+        TreeSet<Character> charSet = createSet();
+        printSet(charSet);
+        filterSet(charSet);
     }
 }
