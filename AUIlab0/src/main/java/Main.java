@@ -45,11 +45,9 @@ public class Main {
     }
 
     private static TreeSet<Character> createSet() {
-        // Use a Stream to flatMap the character lists from each profession
         Stream<Character> characterStream = professions.stream()
                 .flatMap(profession -> profession.getCharacters().stream());
 
-        // Collect the characters into a TreeSet
         TreeSet<Character> characterSet = characterStream.collect(Collectors.toCollection(TreeSet::new));
 
         return characterSet;
