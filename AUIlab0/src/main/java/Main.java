@@ -45,11 +45,9 @@ public class Main {
     }
 
     private static TreeSet<Person> createSet() {
-        // Use a Stream to flatMap the Person lists from each Role
         Stream<Person> PersonStream = Roles.stream()
                 .flatMap(Role -> Role.getPersons().stream());
 
-        // Collect the Persons into a TreeSet
         TreeSet<Person> PersonSet = PersonStream.collect(Collectors.toCollection(TreeSet::new));
 
         return PersonSet;
@@ -174,12 +172,18 @@ public class Main {
     public static void main(String[] args){
         buildRoles();
         buildAndAssignPersons();
+        System.out.println("Task 2");
         printRoles();
+        System.out.println("Task 3");
         TreeSet<Person> charSet = createSet();
         printSet(charSet);
+        System.out.println("Task 4");
         filterSet(charSet);
+        System.out.println("Task 5");
         transformIntoDtoAndPrint(createSet());
+        System.out.println("Task 6");
         serializeDeserializeAndPrint(Roles);
+        System.out.println("Task 7");
         threadPoolTask();
     }
 }
