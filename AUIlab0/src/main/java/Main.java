@@ -9,75 +9,75 @@ import java.util.stream.Stream;
 import java.util.List;
 
 public class Main {
-    static Profession mageProf;
-    static Profession warriorProf;
-    static Profession thiefProf;
-    static Vector<Profession> professions;
-    private static void buildProfessions(){
-        mageProf = Profession.builder().name("Mage").baseArmor(7).build();
-        warriorProf = Profession.builder().name("Warrior").baseArmor(15).build();
-        thiefProf = Profession.builder().name("Thief").baseArmor(10).build();
-        professions = new Vector<>();
-        professions.add(mageProf);
-        professions.add(warriorProf);
-        professions.add(thiefProf);
+    static Role waiterProf;
+    static Role bartenderProf;
+    static Role cookProf;
+    static Vector<Role> Roles;
+    private static void buildRoles(){
+        waiterProf = Role.builder().name("Waiter").workHoursPerDay(8).build();
+        bartenderProf = Role.builder().name("Bartender").workHoursPerDay(12).build();
+        cookProf = Role.builder().name("Cook").workHoursPerDay(16).build();
+        Roles = new Vector<>();
+        Roles.add(waiterProf);
+        Roles.add(bartenderProf);
+        Roles.add(cookProf);
     }
 
-    private static void buildAndAssignCharacters(){
-        Character char1 = Character.builder().name("Seraphin").level(1).profession(mageProf).build();
-        Character char2 = Character.builder().name("Ignatius").level(2).profession(mageProf).build();
-        Character char3 = Character.builder().name("Elowen").level(3).profession(mageProf).build();
-        Character char4 = Character.builder().name("Magnus").level(4).profession(warriorProf).build();
-        Character char5 = Character.builder().name("Isolde").level(1).profession(warriorProf).build();
-        Character char6 = Character.builder().name("Rook").level(2).profession(warriorProf).build();
-        Character char7 = Character.builder().name("Selene").level(5).profession(thiefProf).build();
-        Character char8 = Character.builder().name("Astrid").level(2).profession(thiefProf).build();
-        Character char9 = Character.builder().name("Jareth").level(3).profession(thiefProf).build();
-        mageProf.setCharacters(new ArrayList<Character>(Arrays.asList(char1,char2,char3)));
-        warriorProf.setCharacters(new ArrayList<Character>(Arrays.asList(char4,char5,char6)));
-        thiefProf.setCharacters(new ArrayList<Character>(Arrays.asList(char7,char8,char9)));
+    private static void buildAndAssignPersons(){
+        Person char1 = Person.builder().name("Seraphin").salary(1000).Role(waiterProf).build();
+        Person char2 = Person.builder().name("Ignatius").salary(1200).Role(waiterProf).build();
+        Person char3 = Person.builder().name("Elowen").salary(1300).Role(waiterProf).build();
+        Person char4 = Person.builder().name("Magnus").salary(2400).Role(bartenderProf).build();
+        Person char5 = Person.builder().name("Isolde").salary(2100).Role(bartenderProf).build();
+        Person char6 = Person.builder().name("Rook").salary(2000).Role(bartenderProf).build();
+        Person char7 = Person.builder().name("Selene").salary(3500).Role(cookProf).build();
+        Person char8 = Person.builder().name("Astrid").salary(3200).Role(cookProf).build();
+        Person char9 = Person.builder().name("Jareth").salary(3300).Role(cookProf).build();
+        waiterProf.setPersons(new ArrayList<Person>(Arrays.asList(char1,char2,char3)));
+        bartenderProf.setPersons(new ArrayList<Person>(Arrays.asList(char4,char5,char6)));
+        cookProf.setPersons(new ArrayList<Person>(Arrays.asList(char7,char8,char9)));
     }
 
-    private static void printProffesions(){
-        System.out.println("Printing professions:");
-        professions.forEach(profession -> {profession.getCharacters().forEach(character ->
-                System.out.println(character.toString()));});
+    private static void printRoles(){
+        System.out.println("Printing Roles:");
+        Roles.forEach(Role -> {Role.getPersons().forEach(Person ->
+                System.out.println(Person.toString()));});
     }
 
-    private static TreeSet<Character> createSet() {
-        // Use a Stream to flatMap the character lists from each profession
-        Stream<Character> characterStream = professions.stream()
-                .flatMap(profession -> profession.getCharacters().stream());
+    private static TreeSet<Person> createSet() {
+        // Use a Stream to flatMap the Person lists from each Role
+        Stream<Person> PersonStream = Roles.stream()
+                .flatMap(Role -> Role.getPersons().stream());
 
-        // Collect the characters into a TreeSet
-        TreeSet<Character> characterSet = characterStream.collect(Collectors.toCollection(TreeSet::new));
+        // Collect the Persons into a TreeSet
+        TreeSet<Person> PersonSet = PersonStream.collect(Collectors.toCollection(TreeSet::new));
 
-        return characterSet;
+        return PersonSet;
     }
 
-    private static void printSet(TreeSet<Character> tSet){
-        Stream<Character> characterStream = tSet.stream();
+    private static void printSet(TreeSet<Person> tSet){
+        Stream<Person> PersonStream = tSet.stream();
 
-        System.out.println(characterStream.collect(Collectors.toList()));
+        System.out.println(PersonStream.collect(Collectors.toList()));
     }
 
-    private static void filterSet(TreeSet<Character> tSet){
-        Stream<Character> characterStream = tSet.stream().filter(character -> character.getProfession().
-                equals(mageProf)).sorted();
-        printSet(characterStream.collect(Collectors.toCollection(TreeSet::new)));
+    private static void filterSet(TreeSet<Person> tSet){
+        Stream<Person> PersonStream = tSet.stream().filter(Person -> Person.getRole().
+                equals(waiterProf)).sorted();
+        printSet(PersonStream.collect(Collectors.toCollection(TreeSet::new)));
     }
 
-    private static void transformIntoDtoAndPrint(TreeSet<Character> tSet){
-        List<CharacterDTO> arDTO = tSet.stream().map(character -> {
-            final CharacterDTO charDTo = new CharacterDTO(character.getName(), character.getLevel(), character.getProfession().getName());
+    private static void transformIntoDtoAndPrint(TreeSet<Person> tSet){
+        List<PersonDTO> arDTO = tSet.stream().map(Person -> {
+            final PersonDTO charDTo = new PersonDTO(Person.getName(), Person.getSalary(), Person.getRole().getName());
             return charDTo;
         }).sorted().toList();
 
-        Stream<CharacterDTO> characterStream = arDTO.stream();
-        characterStream.forEach(System.out::println);
+        Stream<PersonDTO> PersonStream = arDTO.stream();
+        PersonStream.forEach(System.out::println);
     }
 
-    private static void serializeDeserializeAndPrint(Vector<Profession> vecProf) {
+    private static void serializeDeserializeAndPrint(Vector<Role> vecProf) {
         String path = "src/main/resources/serialization.txt";
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -106,13 +106,13 @@ public class Main {
         }
 
         //deserielize
-        Vector<Profession> vecProf2 = null;
+        Vector<Role> vecProf2 = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try{
             fis = new FileInputStream(path);
             ois = new ObjectInputStream(fis);
-            vecProf2 = (Vector<Profession>) ois.readObject();
+            vecProf2 = (Vector<Role>) ois.readObject();
         }
         catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
@@ -137,22 +137,22 @@ public class Main {
         }
 
         if(vecProf2!=null){
-            vecProf2.forEach(profession -> {
-                System.out.println(profession);
-                profession.getCharacters().forEach(character ->
-                    System.out.println(character.toString()));});
+            vecProf2.forEach(Role -> {
+                System.out.println(Role);
+                Role.getPersons().forEach(Person ->
+                    System.out.println(Person.toString()));});
         }
     }
 
     private static void threadPoolTask(){
         int poolSize = 4;
         ForkJoinPool customThreadPool = new ForkJoinPool(poolSize);
-        //is this the same as professions.parallelStream(). ... ???????????
-        professions.stream().parallel().forEach(profession -> {
-            profession.getCharacters().forEach(character -> {
+        //is this the same as Roles.parallelStream(). ... ???????????
+        Roles.stream().parallel().forEach(Role -> {
+            Role.getPersons().forEach(Person -> {
                 customThreadPool.execute(() -> {
                     try {
-                        System.out.println("Working on " + character.getName() + " "+ character.getProfession());
+                        System.out.println("Working on " + Person.getName() + " "+ Person.getRole());
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -172,14 +172,14 @@ public class Main {
     }
 
     public static void main(String[] args){
-        buildProfessions();
-        buildAndAssignCharacters();
-        printProffesions();
-        TreeSet<Character> charSet = createSet();
+        buildRoles();
+        buildAndAssignPersons();
+        printRoles();
+        TreeSet<Person> charSet = createSet();
         printSet(charSet);
         filterSet(charSet);
         transformIntoDtoAndPrint(createSet());
-        serializeDeserializeAndPrint(professions);
+        serializeDeserializeAndPrint(Roles);
         threadPoolTask();
     }
 }
