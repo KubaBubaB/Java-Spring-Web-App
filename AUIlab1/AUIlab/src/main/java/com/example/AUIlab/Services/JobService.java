@@ -25,24 +25,20 @@ public class JobService {
         return jobRepository.findById(id);
     }
 
-    public Optional<Job> find(Job job, UUID id) {
-        return jobRepository.findByIdAndJob(id, job);
+    public Optional<Job> find(String name, UUID id) {
+        return jobRepository.findByIdAndName(id, name);
     }
 
     public List<Job> findAll() {
         return jobRepository.findAll();
     }
 
-    public List<Job> findAll(Job job) {
-        return jobRepository.findAllByJob(job);
+    public List<Job> findAll(UUID id) {
+        return jobRepository.findAllById(id);
     }
 
     public List<Job>findAllByWorkHoursPerDay(int workHoursPerDay){
         return jobRepository.findAllByWorkHoursPerDay(workHoursPerDay);
-    }
-
-    public Optional<List<Job>> findAllByPerson(UUID personId){
-        return personRepository.findById(personId).map(jobRepository::findAllByPerson);
     }
 
     public void create(Job job){
