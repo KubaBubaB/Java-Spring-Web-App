@@ -29,7 +29,14 @@ public class AppCommand implements CommandLineRunner {
                 case "add_person" ->{
                     //add a single person
                     System.out.println("UUID of person to be added:");
-                    UUID uuidPerson = UUID.fromString(scanner.next());
+                    UUID uuidPerson = null;
+                    try{
+                        uuidPerson = UUID.fromString(scanner.next());
+                    }
+                    catch(IllegalArgumentException ex){
+                        System.out.println("wrong format, try \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"");
+                    }
+                    
                     System.out.println("Name of person to be added:");
                     String name = scanner.next();
                     System.out.println("Salary of person to be added:");

@@ -17,7 +17,7 @@ public class Job implements Comparable<Job>, Serializable {
     @Id
     private UUID id;
     private String name;
-    private int workHoursPerDay;
+    private Integer workHoursPerDay;
     @OneToMany(mappedBy = "job")
     private List<Person> people;
 
@@ -41,10 +41,10 @@ public class Job implements Comparable<Job>, Serializable {
 
     @Override
     public int compareTo(Job o) {
-        if (name.equals(o.getName()) && workHoursPerDay == o.getWorkHoursPerDay() && people.equals(o.getPeople())){
+        if (name.equals(o.getName()) && Objects.equals(workHoursPerDay, o.getWorkHoursPerDay()) && people.equals(o.getPeople())){
             return 0;
         }
-        else if (name.equals(o.getName()) && workHoursPerDay == o.getWorkHoursPerDay()){
+        else if (name.equals(o.getName()) && Objects.equals(workHoursPerDay, o.getWorkHoursPerDay())){
             int iterator = 0;
             for (Person chara : people){
                 if (o.getPeople().size() <= iterator){
@@ -73,7 +73,7 @@ public class Job implements Comparable<Job>, Serializable {
         if (this == o) return true;
         else if (o == null || getClass() != o.getClass()) return false;
         Job prof = (Job) o;
-        return name.equals(prof.getName()) && workHoursPerDay == prof.getWorkHoursPerDay() && people.equals(prof.getPeople());
+        return name.equals(prof.getName()) && Objects.equals(workHoursPerDay, prof.getWorkHoursPerDay()) && people.equals(prof.getPeople());
     }
 
     @Override
