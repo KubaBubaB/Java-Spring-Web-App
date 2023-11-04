@@ -18,21 +18,8 @@ public class Job implements Comparable<Job>, Serializable {
     private UUID id;
     private String name;
     private Integer workHoursPerDay;
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Person> people;
-
-    public void addPerson(Person chara){
-        people.add(chara);
-    }
-
-    public void removePerson(Person chara) throws NoSuchElementException{
-        if (people.contains(chara)){
-            people.remove(chara);
-        }
-        else{
-            throw new NoSuchElementException("Person "+ chara + " was not found.");
-        }
-    }
 
     @Override
     public String toString(){

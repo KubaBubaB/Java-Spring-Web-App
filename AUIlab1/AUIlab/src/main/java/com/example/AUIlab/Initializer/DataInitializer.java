@@ -44,7 +44,7 @@ public class DataInitializer implements InitializingBean {
                 .salary(3200).job(bartender).name("Bob").build();
 
         Person Charlie = Person.builder().id(UUID.fromString("f483bebb-00a2-484f-bb1a-9259c0b75530"))
-                .salary(3500).job(cook).name("Charlie").build();
+                .salary(3200).job(cook).name("Charlie").build();
 
         Person David = Person.builder().id(UUID.fromString("c098b7d4-6d4e-42d8-8f9e-258dcf0a77fd"))
                 .salary(2800).job(dishwasher).name("David").build();
