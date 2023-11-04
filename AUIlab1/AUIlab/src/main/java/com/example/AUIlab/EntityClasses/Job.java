@@ -2,6 +2,7 @@ package com.example.AUIlab.EntityClasses;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.util.*;
@@ -18,7 +19,8 @@ public class Job implements Comparable<Job>, Serializable {
     private UUID id;
     private String name;
     private Integer workHoursPerDay;
-    @OneToMany(mappedBy = "job", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Person> people;
 
     @Override
@@ -60,11 +62,11 @@ public class Job implements Comparable<Job>, Serializable {
         if (this == o) return true;
         else if (o == null || getClass() != o.getClass()) return false;
         Job prof = (Job) o;
-        return name.equals(prof.getName()) && Objects.equals(workHoursPerDay, prof.getWorkHoursPerDay()) && people.equals(prof.getPeople());
+        return name.equals(prof.getName()) && Objects.equals(workHoursPerDay, prof.getWorkHoursPerDay());
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(name,workHoursPerDay,people);
+        return Objects.hash(name,workHoursPerDay);
     }
 }

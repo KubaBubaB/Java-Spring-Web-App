@@ -46,7 +46,8 @@ public class JobService {
     }
 
     public void update(Job job){
-        jobRepository.save(job);
+        jobRepository.findById(job.getId()).ifPresent(jobRepository::save);
+        //jobRepository.save(job);
     }
 
     public void delete(UUID Id){

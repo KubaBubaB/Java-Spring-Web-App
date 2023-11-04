@@ -60,5 +60,5 @@ Content-Type: application/json
 }
 
 ### delete job
-DELETE http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+DELETE http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
 
