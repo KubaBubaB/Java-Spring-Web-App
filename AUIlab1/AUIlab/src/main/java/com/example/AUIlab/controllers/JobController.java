@@ -67,15 +67,18 @@ public class JobController {
     @PutMapping("/jobs/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     private void createJob(@PathVariable UUID id, @RequestBody PutJobRequest request){
+        if(jobService.find(id).isPresent())
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         jobService.create(requestToJobFunction.apply(id, request));
     }
 
     @PatchMapping("/jobs/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     private void updateJob(@PathVariable UUID id, @RequestBody PatchJobRequest request){
-        jobService.find(id).ifPresentOrElse(job -> jobService.update(updateJobWithRequestFunction.apply(job, request)), () -> {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        });
+        jobService.find(id).map(job -> updateJobWithRequestFunction.apply(job, request))
+                .ifPresentOrElse(jobService::update, () -> {
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                });
     }
 
     @DeleteMapping("/jobs/{id}")

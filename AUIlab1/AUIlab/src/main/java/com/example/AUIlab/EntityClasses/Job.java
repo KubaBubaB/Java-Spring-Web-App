@@ -19,7 +19,7 @@ public class Job implements Comparable<Job>, Serializable {
     private UUID id;
     private String name;
     private Integer workHoursPerDay;
-    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Person> people;
 

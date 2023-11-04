@@ -36,7 +36,7 @@ DELETE http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
 GET http://localhost:8080/work/jobs
 
 ### get job by id
-GET http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+GET http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
 
 ### get jobs by working hours
 GET http://localhost:8080/work/jobs/workingHours/16
@@ -55,8 +55,8 @@ PATCH http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
 Content-Type: application/json
 
 {
-    "name": "Manager",
-    "workingHours": 24
+    "name": "Man",
+    "workingHoursPerDay": 24
 }
 
 ### delete job
