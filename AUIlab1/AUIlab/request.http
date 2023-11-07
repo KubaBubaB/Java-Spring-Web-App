@@ -8,7 +8,7 @@ GET http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069925
 GET http://localhost:8080/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
 
 ### get persons by salary
-GET http://localhost:8080/work/persons/salary/3200
+GET http://localhost:8080/work/persons/salary/3500
 
 ### create new person
 PUT http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929

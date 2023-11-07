@@ -1,5 +1,6 @@
 package com.example.AUIlab.controllers;
 
+import com.example.AUIlab.Services.JobService;
 import com.example.AUIlab.Services.PersonService;
 import com.example.AUIlab.dto.GetPersonResponse;
 import com.example.AUIlab.dto.GetPersonsResponse;
@@ -9,7 +10,6 @@ import com.example.AUIlab.functions.PersonToResponseFunction;
 import com.example.AUIlab.functions.PersonsToResponseFunction;
 import com.example.AUIlab.functions.RequestToPersonFunction;
 import com.example.AUIlab.functions.UpdatePersonWithRequestFunction;
-import lombok.*;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +24,8 @@ import java.util.UUID;
 public class PersonController {
     private final PersonService personService;
 
+    private final JobService jobService;
+
    private final PersonToResponseFunction personToResponseFunction;
 
    private final PersonsToResponseFunction personsToResponseFunction;
@@ -33,8 +35,9 @@ public class PersonController {
     private final UpdatePersonWithRequestFunction updatePersonWithRequestFunction;
 
     @Autowired
-    public PersonController(PersonService personService, PersonToResponseFunction personToResponseFunction, PersonsToResponseFunction personsToResponseFunction, RequestToPersonFunction requestToPersonFunction, UpdatePersonWithRequestFunction updatePersonWithRequestFunction) {
+    public PersonController(PersonService personService, JobService jobService, PersonToResponseFunction personToResponseFunction, PersonsToResponseFunction personsToResponseFunction, RequestToPersonFunction requestToPersonFunction, UpdatePersonWithRequestFunction updatePersonWithRequestFunction) {
         this.personService = personService;
+        this.jobService = jobService;
         this.personToResponseFunction = personToResponseFunction;
         this.personsToResponseFunction = personsToResponseFunction;
         this.requestToPersonFunction = requestToPersonFunction;
@@ -76,8 +79,13 @@ public class PersonController {
     @PutMapping("/persons/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public void createPerson(@PathVariable UUID id,@RequestBody PutPersonRequest putPersonRequest){
-        if(putPersonRequest.getJobsId() == null){
+        if(jobService.find(putPersonRequest.getJobsId()).isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        if(personService.find(id).isPresent()){
+            personService.delete(id);
+            personService.create(requestToPersonFunction.apply(id, putPersonRequest));
+            throw new ResponseStatusException(HttpStatus.CREATED);
         }
         personService.create(requestToPersonFunction.apply(id, putPersonRequest));
     }

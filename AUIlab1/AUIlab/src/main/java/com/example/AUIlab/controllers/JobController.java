@@ -68,7 +68,7 @@ public class JobController {
     @ResponseStatus(HttpStatus.CREATED)
     private void createJob(@PathVariable UUID id, @RequestBody PutJobRequest request){
         if(jobService.find(id).isPresent())
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+            throw new ResponseStatusException(HttpStatus.CREATED);
         jobService.create(requestToJobFunction.apply(id, request));
     }
 
