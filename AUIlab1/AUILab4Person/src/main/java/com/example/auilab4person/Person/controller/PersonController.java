@@ -1,6 +1,7 @@
 package com.example.auilab4person.Person.controller;
 
 import com.example.auilab4person.Job.JobService;
+import com.example.auilab4person.Person.Person;
 import com.example.auilab4person.Person.dto.GetPersonResponse;
 import com.example.auilab4person.Person.dto.GetPersonsResponse;
 import com.example.auilab4person.Person.dto.PatchPersonRequest;
@@ -84,10 +85,14 @@ public class PersonController {
         }
         if(personService.find(id).isPresent()){
             personService.delete(id);
-            personService.create(requestToPersonFunction.apply(id, putPersonRequest));
-            throw new ResponseStatusException(HttpStatus.CREATED);
+            Person tmp = requestToPersonFunction.apply(id, putPersonRequest);
+            tmp.setJob(jobService.find(putPersonRequest.getJobsId()).get());
+            personService.create(tmp);
+            return;
         }
-        personService.create(requestToPersonFunction.apply(id, putPersonRequest));
+        Person tmp = requestToPersonFunction.apply(id, putPersonRequest);
+        tmp.setJob(jobService.find(putPersonRequest.getJobsId()).get());
+        personService.create(tmp);
     }
 
     @PatchMapping("/persons/{personId}")
