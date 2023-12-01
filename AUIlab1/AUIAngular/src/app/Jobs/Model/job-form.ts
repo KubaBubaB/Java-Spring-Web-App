@@ -1,4 +1,4 @@
 export interface JobForm{
   name: string;
-  workHoursPerDay: Number;
+  workingHoursPerDay: Number;
 }

@@ -5,6 +5,7 @@ import {Jobs} from "../Model/jobs";
 import {Job} from "../Model/job";
 import {JobDetails} from "../Model/job-details";
 import {Persons} from "../../Persons/Model/persons";
+import {JobForm} from "../Model/job-form";
 @Injectable({
     providedIn: 'root'
     })
@@ -26,5 +27,9 @@ export class JobService {
 
   getPersons(uuid: string): Observable<Persons> {
     return this.http.get<Persons>('/work/persons/jobs/' + uuid);
+  }
+
+  patchJob(uuid: string, jobForm: JobForm) {
+    return this.http.patch('/work/jobs/' + uuid, jobForm);
   }
 }
