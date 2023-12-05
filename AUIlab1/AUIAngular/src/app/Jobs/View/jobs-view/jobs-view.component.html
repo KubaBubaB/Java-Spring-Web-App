@@ -1,6 +1,6 @@
 <article *ngIf="job">
   <header><h2>{{job.name}}</h2></header>
-
+  <button (click) = goToAddPage()>Add</button>
   <div class="container">
     <div class="row">
       <div class="col-4">
@@ -9,7 +9,7 @@
             Job
           </div>
           <div class="col-6">
-            Salary
+            Working Hours Per Day
           </div>
           <div class="col-6">
             <span>{{job.workHoursPerDay}}</span>

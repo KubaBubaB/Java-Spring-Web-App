@@ -10,13 +10,15 @@ import {FooterComponent} from "./component/footer/footer.component";
 import { PersonsViewComponent } from './Persons/View/persons-view/persons-view.component';
 import { PersonsListComponent } from './Persons/View/persons-list/persons-list.component';
 import { PersonsEditComponent } from './Persons/View/persons-edit/persons-edit.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { JobsViewComponent } from './Jobs/View/jobs-view/jobs-view.component';
 import { JobsListComponent } from './Jobs/View/jobs-list/jobs-list.component';
 import { JobsEditComponent } from './Jobs/View/jobs-edit/jobs-edit.component';
 import {personService} from "./Persons/Service/persons-service";
 import {JobService} from "./Jobs/Service/job-service";
+import { JobsAddComponent } from './Jobs/View/jobs-add/jobs-add.component';
+import { PersonsAddComponent } from './Jobs/View/persons-add/persons-add.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,16 @@ import {JobService} from "./Jobs/Service/job-service";
     PersonsEditComponent,
     JobsViewComponent,
     JobsListComponent,
-    JobsEditComponent
+    JobsEditComponent,
+    JobsAddComponent,
+    PersonsAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [personService,
   JobService

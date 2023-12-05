@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from "../../Service/job-service";
 import {Jobs} from "../../Model/jobs";
+import {Router} from "@angular/router";
 import {Job} from "../../Model/job";
 
 @Component({
@@ -11,8 +12,9 @@ import {Job} from "../../Model/job";
 export class JobsListComponent implements OnInit{
   /**
    * @param service jobs service
+   * @param router
    */
-  constructor(private service: JobService) {
+  constructor(private service: JobService, public router: Router) {
   }
 
 
@@ -26,5 +28,8 @@ export class JobsListComponent implements OnInit{
     this.service.deleteJob(job.id).subscribe(() => this.ngOnInit());
   }
 
+  goToAddPage(): void {
+    this.router.navigate(['/jobs/add']);
+  }
 
 }

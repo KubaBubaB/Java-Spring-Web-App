@@ -4,6 +4,8 @@ import {JobDetails} from "../../Model/job-details";
 import {JobService} from "../../Service/job-service";
 import {Persons} from "../../../Persons/Model/persons";
 import {Person} from "../../../Persons/Model/person";
+import {personService} from "../../../Persons/Service/persons-service";
+import {state} from "@angular/animations";
 
 @Component({
   selector: 'app-jobs-view',
@@ -14,7 +16,7 @@ export class JobsViewComponent implements OnInit{
 
   job: JobDetails | undefined;
   persons: Persons | undefined;
-  constructor(private service: JobService, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: JobService, private route: ActivatedRoute, private router: Router, private personSer: personService) {
   }
 
   ngOnInit() {
@@ -26,6 +28,12 @@ export class JobsViewComponent implements OnInit{
   }
 
   onDeletePerson(person: Person) {
+    this.personSer.deletePerson(person.id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
 
+  goToAddPage() {
+    this.router.navigate(['jobs/persons/add'], {state: {jobsId: this.job?.id}});
   }
 }

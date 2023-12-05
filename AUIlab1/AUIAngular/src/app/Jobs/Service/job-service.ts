@@ -6,6 +6,7 @@ import {Job} from "../Model/job";
 import {JobDetails} from "../Model/job-details";
 import {Persons} from "../../Persons/Model/persons";
 import {JobForm} from "../Model/job-form";
+import {JobFormAdd} from "../Model/job-form-add";
 @Injectable({
     providedIn: 'root'
     })
@@ -31,5 +32,9 @@ export class JobService {
 
   patchJob(uuid: string, jobForm: JobForm) {
     return this.http.patch('/work/jobs/' + uuid, jobForm);
+  }
+
+  putJob(uuid: string, jobFormAdd: JobFormAdd) {
+    return this.http.put('/work/jobs/' + uuid, jobFormAdd);
   }
 }

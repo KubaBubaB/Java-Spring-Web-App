@@ -6,6 +6,8 @@ import {PersonsEditComponent} from "./Persons/View/persons-edit/persons-edit.com
 import {JobsListComponent} from "./Jobs/View/jobs-list/jobs-list.component";
 import {JobsViewComponent} from "./Jobs/View/jobs-view/jobs-view.component";
 import {JobsEditComponent} from "./Jobs/View/jobs-edit/jobs-edit.component";
+import {JobsAddComponent} from "./Jobs/View/jobs-add/jobs-add.component";
+import {PersonsAddComponent} from "./Jobs/View/persons-add/persons-add.component";
 
 const routes: Routes = [
   {
@@ -21,18 +23,18 @@ const routes: Routes = [
     component: PersonsEditComponent,
     path: "persons/:uuid/edit"
   },
-  //{
-    //component: PersonAddComponent,
-    //path: "persons/add"
-  //},
+  {
+    component: PersonsAddComponent,
+    path: "jobs/persons/add"
+  },
   {
     component: JobsListComponent,
     path: "jobs"
   },
-  //{
-    //component: JobAddComponent,
-    //path: "jobs/add"
-  //},
+  {
+    component: JobsAddComponent,
+    path: "jobs/add"
+  },
   {
     component: JobsViewComponent,
     path: "jobs/:uuid"

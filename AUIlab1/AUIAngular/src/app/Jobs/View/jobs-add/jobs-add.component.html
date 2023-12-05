@@ -1,0 +1,38 @@
+<article>
+  <header><h2>Add job</h2></header>
+
+  <form class="container" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="uuid">UUID:</label>
+          <input id="uuid" type="text" formControlName="uuid"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" type="text" formControlName="name"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="workingHours">workingHours:</label>
+          <input id="workingHours" type="text" formControlName="workingHours"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Add</button>
+      </div>
+    </div>
+  </form>
+</article>
