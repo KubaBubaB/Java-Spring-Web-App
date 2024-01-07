@@ -2,7 +2,7 @@
 GET http://localhost:8085/work/persons
 
 ### get person by id
-GET http://localhost:8085/work/persons/f483bebb-00a2-484f-bb1a-9259c0b75530
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
 
 ### get persons by job
 GET http://localhost:8085/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
   "name": "John",
-  "salary": 3200,
+  "salary": 3800,
   "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
 }
 
@@ -36,7 +36,7 @@ DELETE http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
 GET http://localhost:8085/work/jobs
 
 ### get job by id
-GET http://localhost:8085/work/jobs/5b67dea4-3648-4d5a-a121-a470b72355f8
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
 
 ### get jobs by working hours
 GET http://localhost:8085/work/jobs/workingHours/16
@@ -51,12 +51,12 @@ Content-Type: application/json
 }
 
 ### update job
-PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
 Content-Type: application/json
 
 {
-  "name": "Man",
-  "workingHoursPerDay": 24
+  "name": "Mantainer",
+  "workingHoursPerDay": 10
 }
 
 ### delete job

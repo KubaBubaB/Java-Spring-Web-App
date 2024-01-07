@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Service
 public class JobService {
+    private int counter = 0;
     private final JobRepository jobRepository;
     private final JobEventRestRepository jobEventRestRepository;
 
@@ -42,7 +43,10 @@ public class JobService {
 
     public void create(Job job){
         jobRepository.save(job);
-        jobEventRestRepository.create(job.getId(), job.getName());
+        if(counter >= 4){
+            jobEventRestRepository.create(job.getId(), job.getName());
+        }
+        counter++;
     }
 
     public void update(Job job){

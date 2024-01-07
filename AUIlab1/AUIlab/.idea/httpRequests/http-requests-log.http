@@ -1,3 +1,44 @@
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T114240.200.json
+
+###
+
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T114237.200.json
+
+###
+
+PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Content-Type: application/json
+Content-Length: 53
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "Mantainer",
+  "workingHoursPerDay": 10
+}
+
+###
+
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T113927.200.json
+
+###
+
 GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
@@ -475,49 +516,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-11-19T164532.404.json
-
-###
-
-PUT http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
-Content-Type: application/json
-Content-Length: 45
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "name": "Manager",
-  "workingHours": 16
-}
-
-<> 2023-11-19T164528.404.json
-
-###
-
-GET http://localhost:8085/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-19T164516.200.json
-
-###
-
-GET http://localhost:8085/work/jobs
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-19T164457.200.json
-
-###
-
-GET http://localhost:8085/work/jobs/5b67dea4-3648-4d5a-a121-a470b72355f8
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-19T164405.404.json
 
 ###
 

@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  aui-person:
+    image: aui-person:1.0
+    restart: always
+    networks:
+      - aui-network
+
+  aui-job:
+    image: aui-job:1.0
+    restart: always
+    environment:
+      AUI_CHARACTER_URL: "http://aui-person:8080"
+    networks:
+      - aui-network
+
+  aui-gateway:
+    image: aui-gateway:1.0
+    restart: always
+    environment:
+      AUI_CHARACTER_URL: "http://aui-person:8080"
+      AUI_PROFESSION_URL: "http://aui-job:8080"
+      AUI_GATEWAY_HOST: "http://aui-gateway:8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - aui-network
+
+  aui-ng:
+    image: aui-angular:1.0
+    restart: always
+    environment:
+      API_URL: http://aui-gateway:8080/work
+    ports:
+      - "8085:80"
+    networks:
+      - aui-network
+
+networks:
+  aui-network:
+    driver: bridge
