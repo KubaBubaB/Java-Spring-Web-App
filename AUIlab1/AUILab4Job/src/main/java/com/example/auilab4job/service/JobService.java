@@ -42,6 +42,7 @@ public class JobService {
     }
 
     public void create(Job job){
+        System.out.println("creating job: " + job.getName());
         jobRepository.save(job);
         if(counter >= 4){
             jobEventRestRepository.create(job.getId(), job.getName());

@@ -1,6 +1,6 @@
 {
   "/work": {
-    "target": "http://localhost:8085",
+    "target": "aui-gateway:8080",
     "secure": false,
     "changeOrigin": true
   }

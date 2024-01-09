@@ -31,6 +31,7 @@ export class JobsAddComponent{
    */
 
   onSubmit() {
+    console.log("submit job request");
     this.uuid = this.addForm.value.uuid as string;
     this.job = {
       name: this.addForm.value.name as string,

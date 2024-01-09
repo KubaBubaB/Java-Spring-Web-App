@@ -11,6 +11,7 @@ import java.util.function.Function;
 public class JobsToResponseFunction  implements Function<List<Job>, GetJobsResponse> {
     @Override
     public GetJobsResponse apply(List<Job> jobs){
+        System.out.println("GettingJobs");
         return GetJobsResponse.builder().jobs(jobs.stream().map(job -> GetJobsResponse.Job.builder()
                 .id(job.getId()).name(job.getName()).build()).toList()).build();
     }

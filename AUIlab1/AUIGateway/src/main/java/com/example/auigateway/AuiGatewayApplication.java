@@ -21,6 +21,7 @@ public class AuiGatewayApplication {
                                      @Value("${aui.person.url}") String personUrl,
                                      @Value("${aui.job.url}") String jobUrl,
                                      @Value("${aui.gateway.host}") String host){
+        System.out.println("routinglog here");
         return builder.routes().
                 route("jobs", r -> r.host(host).and().path("/work/jobs", "/work/jobs/{id}", "/work/jobs/workingHours/{workingHours}", "/work/jobs/*").uri(jobUrl)).
                 route("persons", r -> r.host(host).and().path("/work/persons", "/work/persons/{id}", "/work/persons/jobs/{id}", "/work/persons/salary/{salary}", "/work/persons/*").uri(personUrl)).build();

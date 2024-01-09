@@ -16,9 +16,9 @@ ENV SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect
 ENV SPRING_JPA_GENERATE_DDL=true
 ENV SPRING_JPA_HIBERNATE_DDL_AUTO=update
 ENV SPRING_H2_CONSOLE_enabled=true
-ENV AUI_GATEWAY_HOST=localhost:8080
-ENV AUI_CHARACTER_URL=http://localhost:8081
-ENV AUI_PROFESSION_URL=http://localhost:8082
+ENV AUI_GATEWAY_HOST=http://aui-gateway:8080
+ENV AUI_CHARACTER_URL=aui-person:8080
+ENV AUI_PROFESSION_URL=aui-job:8080
 EXPOSE 8080
 COPY target/aui-gateway-1.0.jar /opt/aui-gateway/aui-gateway.jar
 CMD ["java", "-jar", "/opt/aui-gateway/aui-gateway.jar"]

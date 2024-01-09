@@ -11,7 +11,7 @@ LABEL maintainer=""
 
 ENV VERSION="1.0.0-SNAPSHOT"
 
-ENV API_URL http://localhost:8080/work
+ENV API_URL http://aui-gateway:8080/work
 
 EXPOSE 80
 

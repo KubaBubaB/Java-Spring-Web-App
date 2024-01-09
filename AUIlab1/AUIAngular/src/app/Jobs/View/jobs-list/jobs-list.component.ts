@@ -21,6 +21,7 @@ export class JobsListComponent implements OnInit{
   jobs: Jobs | undefined;
 
   ngOnInit(): void {
+    console.log("init jobs list");
     this.service.getJobs().subscribe(jobs => this.jobs = jobs);
   }
 
@@ -29,6 +30,7 @@ export class JobsListComponent implements OnInit{
   }
 
   goToAddPage(): void {
+    console.log("go to add page");
     this.router.navigate(['/jobs/add']);
   }
 
