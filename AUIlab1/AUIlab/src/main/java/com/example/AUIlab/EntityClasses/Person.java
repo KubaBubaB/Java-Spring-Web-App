@@ -19,7 +19,7 @@ public class Person implements Comparable<Person>, Serializable {
     @Id
     private UUID id;
     private String name;
-    private int salary;
+    private Integer salary;
     @ManyToOne
     @JoinColumn(name = "job")
     private Job job;
@@ -31,10 +31,10 @@ public class Person implements Comparable<Person>, Serializable {
 
     @Override
     public int compareTo(Person o) {
-        if(o.getName().equals(name) && o.salary == salary && o.getJob().getName().equals(job.getName())){
+        if(o.getName().equals(name) && Objects.equals(o.salary, salary) && o.getJob().getName().equals(job.getName())){
             return 0;
         }
-        else if (name.equals(o.getName()) && o.salary == salary){
+        else if (name.equals(o.getName()) && Objects.equals(o.salary, salary)){
             return job.getName().compareTo(o.getJob().getName());
         }
         else if (name.equals(o.getName())){
@@ -50,9 +50,9 @@ public class Person implements Comparable<Person>, Serializable {
         if (this == o) return true;
         else if (o == null || getClass() != o.getClass()) return false;
         Person chara = (Person) o;
-        return salary == chara.getSalary() && name.equals(chara.getName()) &&
+        return Objects.equals(salary, chara.getSalary()) && name.equals(chara.getName()) &&
                 job.getName().equals(chara.getJob().getName()) &&
-                job.getWorkHoursPerDay() == chara.getJob().getWorkHoursPerDay();
+                Objects.equals(job.getWorkHoursPerDay(), chara.getJob().getWorkHoursPerDay());
     }
 
     @Override

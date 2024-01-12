@@ -1,0 +1,521 @@
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T114240.200.json
+
+###
+
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T114237.200.json
+
+###
+
+PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Content-Type: application/json
+Content-Length: 53
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "Mantainer",
+  "workingHoursPerDay": 10
+}
+
+###
+
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T113927.200.json
+
+###
+
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T105807.200.json
+
+###
+
+GET http://localhost:8085/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T105549.200.json
+
+###
+
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T105537.200.json
+
+###
+
+PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Content-Type: application/json
+Content-Length: 47
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "Man",
+  "workingHoursPerDay": 24
+}
+
+###
+
+GET http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T105520.200.json
+
+###
+
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T105458.200.json
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104942.200.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3800,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104930.200.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+###
+
+GET http://localhost:8085/work/persons/f483bebb-00a2-484f-bb1a-9259c0b75530
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104236.200.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104221.200.json
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104159.500.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104157.200.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104146.200.json
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104127.500.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104119.500.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T104047.200.json
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T102551.500.json
+
+###
+
+PATCH http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 38
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500
+}
+
+###
+
+GET http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T102323.500.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T102309.200.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+<> 2023-12-01T102304.201.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3200,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+###
+
+GET http://localhost:8085/work/persons/f398ec59-f0a5-3a1f-8c9e-6eafda8cecad
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T101654.500.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-01T101554.200.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-21T132759.200.json
+
+###
+
+DELETE http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-21T132737.200.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164854.200.json
+
+###
+
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164849.200.json
+
+###
+
+DELETE http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8085/work/jobs
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164827.200.json
+
+###
+
+GET http://localhost:8085/work/persons
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164813.200.json
+
+###
+
+GET http://localhost:8085/work/persons/f483bebb-00a2-484f-bb1a-9259c0b75530
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164749.200.json
+
+###
+
+GET http://localhost:8085/work/persons/f483bebb-00a2-484f-bb1a-9259c0b75530
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164611.404.json
+
+###
+
+GET http://localhost:8085/work/persons/f483bebb-00a2-484f-bb1a-9259c0b75530
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164608.404.json
+
+###
+
+GET http://localhost:8085/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164604.200.json
+
+###
+
+GET http://localhost:8085/work/persons/salary/3500
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164558.200.json
+
+###
+
+PUT http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3200,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+<> 2023-11-19T164553.404.json
+
+###
+
+PATCH http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+Content-Length: 38
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "John",
+  "salary": 3500
+}
+
+<> 2023-11-19T164550.404.json
+
+###
+
+DELETE http://localhost:8085/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164543.404.json
+
+###
+
+DELETE http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-19T164536.404.json
+
+###
+
+PATCH http://localhost:8085/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+Content-Type: application/json
+Content-Length: 47
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "Man",
+  "workingHoursPerDay": 24
+}
+
+<> 2023-11-19T164532.404.json
+
+###
+

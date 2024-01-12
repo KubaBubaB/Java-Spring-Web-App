@@ -1,0 +1,64 @@
+### get all persons
+GET http://localhost:8080/work/persons
+
+### get person by id
+GET http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069925
+
+### get persons by job
+GET http://localhost:8080/work/persons/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+
+### get persons by salary
+GET http://localhost:8080/work/persons/salary/3500
+
+### create new person
+PUT http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+
+{
+  "name": "John",
+  "salary": 3200,
+  "jobsId": "a4631ac7-6a79-4131-a852-9a19a6188cc9"
+}
+
+### update person
+PATCH http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+Content-Type: application/json
+
+{
+  "name": "John",
+  "salary": 3500
+}
+
+### delete person
+DELETE http://localhost:8080/work/persons/a7392b37-6c9c-43fd-9cc3-9e1c4d069929
+
+### get all jobs
+GET http://localhost:8080/work/jobs
+
+### get job by id
+GET http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+
+### get jobs by working hours
+GET http://localhost:8080/work/jobs/workingHours/16
+
+### create new job
+PUT http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+Content-Type: application/json
+
+{
+  "name": "Manager",
+  "workingHours": 16
+}
+
+### update job
+PATCH http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cd3
+Content-Type: application/json
+
+{
+  "name": "Man",
+  "workingHoursPerDay": 24
+}
+
+### delete job
+DELETE http://localhost:8080/work/jobs/a4631ac7-6a79-4131-a852-9a19a6188cc9
+

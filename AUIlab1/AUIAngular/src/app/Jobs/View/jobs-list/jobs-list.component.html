@@ -1,0 +1,29 @@
+<article class="text--justified">
+  <header><h2>jobs</h2></header>
+  <button (click) = goToAddPage()>Add</button>
+  <table *ngIf="jobs">
+
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let job of jobs.jobs">
+      <td>{{job.name}}</td>
+      <td>
+        <a [routerLink]="['/jobs', job.id]">View</a>
+      </td>
+      <td>
+        <a [routerLink]="['/jobs', job.id, 'edit']">Edit</a>
+      </td>
+      <td>
+        <button (click)="onDelete(job)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</article>
