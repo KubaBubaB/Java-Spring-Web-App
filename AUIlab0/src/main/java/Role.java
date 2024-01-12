@@ -44,6 +44,7 @@ public class Role implements Comparable<Role>, Serializable {
     @Override
     public String toString(){
         return "Role name: " + name + " Work Hours Per Day: " + workHoursPerDay;
+        //return "Role name: " + name + " Base armor: " + workHoursPerDay + "Persons belonging to this prof: " + Persons;
     }
 
     @Override

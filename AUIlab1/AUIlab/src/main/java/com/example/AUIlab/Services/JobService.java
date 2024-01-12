@@ -46,11 +46,6 @@ public class JobService {
     }
 
     public void update(Job job){
-        //Job myJob = jobRepository.findById(job.getId()).orElseThrow();
-        //myJob.setName(job.getName());
-        //myJob.setWorkHoursPerDay(job.getWorkHoursPerDay());
-        //myJob.setPeople(job.getPeople());
-        //jobRepository.save(myJob);
         jobRepository.save(job);
     }
 
