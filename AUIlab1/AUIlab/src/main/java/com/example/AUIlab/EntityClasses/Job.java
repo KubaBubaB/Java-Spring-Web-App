@@ -2,7 +2,6 @@ package com.example.AUIlab.EntityClasses;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.util.*;
@@ -18,10 +17,22 @@ public class Job implements Comparable<Job>, Serializable {
     @Id
     private UUID id;
     private String name;
-    private Integer workHoursPerDay;
-    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private int workHoursPerDay;
+    @OneToMany(mappedBy = "job")
     private List<Person> people;
+
+    public void addPerson(Person chara){
+        people.add(chara);
+    }
+
+    public void removePerson(Person chara) throws NoSuchElementException{
+        if (people.contains(chara)){
+            people.remove(chara);
+        }
+        else{
+            throw new NoSuchElementException("Person "+ chara + " was not found.");
+        }
+    }
 
     @Override
     public String toString(){
@@ -30,10 +41,10 @@ public class Job implements Comparable<Job>, Serializable {
 
     @Override
     public int compareTo(Job o) {
-        if (name.equals(o.getName()) && Objects.equals(workHoursPerDay, o.getWorkHoursPerDay()) && people.equals(o.getPeople())){
+        if (name.equals(o.getName()) && workHoursPerDay == o.getWorkHoursPerDay() && people.equals(o.getPeople())){
             return 0;
         }
-        else if (name.equals(o.getName()) && Objects.equals(workHoursPerDay, o.getWorkHoursPerDay())){
+        else if (name.equals(o.getName()) && workHoursPerDay == o.getWorkHoursPerDay()){
             int iterator = 0;
             for (Person chara : people){
                 if (o.getPeople().size() <= iterator){
@@ -62,11 +73,11 @@ public class Job implements Comparable<Job>, Serializable {
         if (this == o) return true;
         else if (o == null || getClass() != o.getClass()) return false;
         Job prof = (Job) o;
-        return name.equals(prof.getName()) && Objects.equals(workHoursPerDay, prof.getWorkHoursPerDay());
+        return name.equals(prof.getName()) && workHoursPerDay == prof.getWorkHoursPerDay() && people.equals(prof.getPeople());
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(name,workHoursPerDay);
+        return Objects.hash(name,workHoursPerDay,people);
     }
 }
